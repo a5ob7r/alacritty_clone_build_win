@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Clone and build
+        run: |
+          git clone https://github.com/alacritty/alacritty.git
+          cd alacritty
+          cargo build --release
