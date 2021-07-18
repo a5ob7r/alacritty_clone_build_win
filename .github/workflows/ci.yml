@@ -7,6 +7,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Whether or not is enabled developer mode
+        run: (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock').AllowDevelopmentWithoutDevLicense -eq 1
+
       - name: Clone and build
         run: |
           git clone https://github.com/alacritty/alacritty.git
